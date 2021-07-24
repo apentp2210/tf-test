@@ -34,5 +34,5 @@ module "ec2-instance" {
   vpc_security_group_ids = module.vpc.default_security_group_id
   subnet_ids = module.vpc.public_subnets
   associate_public_ip_address = true
-  Name = "public-ec2"
+  name = "public-ec2"
 }
