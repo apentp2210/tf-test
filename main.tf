@@ -36,14 +36,3 @@ module "ec2-instance" {
   associate_public_ip_address = true
   Name = "public-ec2"
 }
-
-module "ec2-instance" {
-  instance_count = 2
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "2.19.0"
-  ami = data.aws_ssm_parameter.linux.value
-  instance_type = "t2.micro"
-  vpc_security_group_ids = module.vpc.default_security_group_id
-  subnet_ids = module.vpc.private_subnets[0]
-  Name = "private-ec2"
-}
